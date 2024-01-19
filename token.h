@@ -1,0 +1,49 @@
+#ifndef MOSAIC_ECS_TOKEN_H
+#define MOSAIC_ECS_TOKEN_H
+
+#include <string>
+
+typedef enum {
+    // Single-character tokens.
+    TOKEN_LEFT_SQUARE, TOKEN_RIGHT_SQUARE,
+    TOKEN_LEFT_PAREN, TOKEN_RIGHT_PAREN,
+    TOKEN_INDENT, TOKEN_DEDENT,
+    TOKEN_COLON, TOKEN_COMMA, TOKEN_DOT,
+    // One or two character tokens.
+    TOKEN_MINUS, TOKEN_MINUS_EQUAL,
+    TOKEN_PLUS, TOKEN_PLUS_EQUAL,
+    TOKEN_SLASH, TOKEN_SLASH_EQUAL,
+    TOKEN_STAR, TOKEN_STAR_EQUAL,
+    TOKEN_MODULO, TOKEN_MODULO_EQUAL,
+    TOKEN_BANG, TOKEN_BANG_EQUAL,
+    TOKEN_EQUAL, TOKEN_EQUAL_EQUAL,
+    TOKEN_GREATER, TOKEN_GREATER_EQUAL,
+    TOKEN_LESS, TOKEN_LESS_EQUAL,
+    TOKEN_PIPE, TOKEN_OR,
+    TOKEN_AND,
+    // Literals.
+    TOKEN_IDENTIFIER, TOKEN_STRING, TOKEN_NUMBER,
+    // Keywords.
+    TOKEN_ELSE, TOKEN_FALSE,
+    TOKEN_FUN, TOKEN_IF, TOKEN_NIL,
+    TOKEN_PRINT, TOKEN_RETURN, TOKEN_THIS,
+    TOKEN_TRUE, TOKEN_LET, TOKEN_WHILE,
+    // ECS Keywords.
+    TOKEN_WORLD, TOKEN_SCENE, TOKEN_LAYER,
+    TOKEN_ENTITY, TOKEN_COMP, TOKEN_SYS,
+    TOKEN_RES, TOKEN_INIT, TOKEN_RUN,
+    TOKEN_QUERY, TOKEN_WITH, TOKEN_WITHOUT,
+
+    TOKEN_ERROR, TOKEN_EOF
+} TokenType;
+
+struct Token {
+    TokenType type;
+    std::string lexeme;
+    int line;
+    int column;
+
+    friend std::ostream& operator<<(std::ostream& os, const Token& dt);
+};
+
+#endif

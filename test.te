@@ -1,0 +1,83 @@
+fun fib(n)
+    if n < 2 return n
+    return fib(n - 2) + fib(n - 1)
+
+fun sum(a, b, c)
+    return a + b + c
+
+
+
+
+print sum(1, 2, 3)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+comp Text
+    text: StringIndex
+    init(text)
+        this.text = text
+
+comp Name
+    name: StringIndex
+    init(name)
+        this.name = name
+
+sys Hello
+    query greeting
+        msg: Text
+    query to
+        person: Name
+    run greeting | to
+        msgs<Res>[person.name] = msg.text + person.name
+
+sys DrawMessage
+    count = 0
+    query a
+        person: Name
+    run
+        draw_text(msgs<Res>[person.name], 50, 200, 200 * count)
+        count += 1
+
+fun app()
+    this.window.width = 1920
+    this.window.height = 1080
+
+    world_0: World
+    world_0.active = true
+
+    scene_0: Scene
+    scene_0.active = true
+
+    layer_0: Layer
+    layer_0.active = true
+
+    msgs: Res
+    world_0.res += msgs
+
+    becca: Entity = Name("Becca")
+    becca.active = true
+
+    eileen: Entity = Name("Eileen!")
+    eileen.active = true
+
+    layer_0.update += Hello
+    layer_0.update.Hello.active = true
+
+    layer_0.update += DrawMessage
+    layer_0.update.DrawMessage.active = true
+
+app()
+*/
